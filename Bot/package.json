@@ -1,0 +1,15 @@
+{
+	"name": "OAAPadlock-Bot",
+	"version": "1.0.0",
+	"description": "A simple Obyte bot to unlock a padlock through an Obyte autonomous agent response.",
+	"main": "OAAPadlock.js",
+	"license": "MIT",
+	"dependencies": {
+		"headless-obyte": "git://github.com/byteball/headless-obyte.git#aa",
+		"npm": "^6.6.0"
+	},
+	"author": {
+		"name": "Marco Dos Santos Oliveira (@mjdso13)",
+		"email": "marco.dossantosoliveira@sunrise.ch"
+	}
+}

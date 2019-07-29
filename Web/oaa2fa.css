@@ -1,0 +1,132 @@
+/**
+ * CSS File 
+ *
+ * All the css styles for OAA2FA demo
+ *
+ * @file    oaa2fa.css
+ * @author  Marco J. Dos Santos Oliveira (@mjdso13)
+ * @license MIT
+ *
+ */
+
+body {
+	display: table;
+   margin: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	text-align : center;
+	color : #2f3d52;
+}
+
+label  {
+	text-align : left;
+}
+
+input[type=text]  {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+}
+
+input[type=password] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+}
+
+button {
+	background-color: #5377e3;
+	color: white;
+	padding: 12px 20px;
+	margin: 8px 0;
+	border: none;
+	width : 100%;
+	cursor: default;
+}
+
+button:hover {
+	cursor: pointer;
+	opacity: 0.8;
+}
+
+button:disabled,
+button[disabled]{
+	background-color: #cccccc;
+	opacity: 0.3;
+	cursor: default;
+}
+
+.top {
+	padding: 12px;
+	text-align : center;
+}
+#loginpage .top, #registerpage .top {
+	padding: 12px;
+	text-align : left;
+}
+
+.bottom {
+	background-color:#2f3d52;
+	color : #fefefe;
+	margin: 0;
+	padding: 24px;
+	border-radius : 0px 0px 9px 9px;
+	text-decoration: none;
+	text-align: center;
+}
+
+.bottom a {
+	cursor: pointer;
+}
+
+#content {
+	width : 480px;
+}
+
+#registerpage, #loginpage, #lostpage, #registeredpage, #oaa2fapage, #connectedpage, #unauthorizedpage {
+	border: 2px solid #192436;
+	border-radius: 12px;
+	display : table-cell;
+}
+
+#registerpage a, #loginpage a, #lostpage a, #registeredpage a, #oaa2fapage a, #connectedpage a {
+	cursor: pointer;
+}
+
+#unauthorizedpage a {
+	text-decoration: none;
+	color : #fefefe;
+}
+
+.warning {
+	text-align: center;
+	font-size : 9px;
+	color : red;
+}
+
+.qrcode {
+	display: table;
+   margin: 12px auto 12px auto;
+	border : 2px solid #192436;
+	width: 40%;
+}
+
+.logo {
+	display: table;
+   margin: 24px auto 24px auto;
+	text-align: center;
+	border-radius: 100%;
+	border : 2px solid #192436;
+	width: 30%;
+}
+
+.invisible {
+	visibility:hidden;
+	display:none;
+}

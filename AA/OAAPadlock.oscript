@@ -1,0 +1,40 @@
+{
+	init: 
+	`{ 
+		$oaapadlock_administrator_address = '2HG7QND7E45CT2YAFBSAXLNHXNDS3LKQ';
+		$oaapadlock_minimum_withdrawal = 10000; // 10 Kbytes
+		$oaapadlock_withdrawal_timestamp = 
+			(var['next_withdrawal'] != false) // if next withdrawal state is allocated 
+			? var['next_withdrawal'] // set it
+			: 1564617600; // else initialize it for the August 1st, 2019
+	}`,
+    messages: [
+        {
+			if: `{
+				// test if last MC unit timestamp is > or = to withdrawal timestamp
+				timestamp >= $oaapadlock_withdrawal_timestamp 
+				// and if AA balance is > or = to minimum withdrawal amount allowed
+				and balance[base] >= $oaapadlock_minimum_withdrawal
+			}`,
+            app: 'payment',
+            payload: {
+                asset: "base",
+                outputs: [
+                    {address: `{$oaapadlock_administrator_address}`} // send the AA cash box to the admin
+                ]
+            }
+        },
+		{
+            app: "state",
+            state: `{
+				var['next_withdrawal'] = 
+				// if timestamp is > or = to the withdrawal scheduled timestamp
+				(timestamp >= $oaapadlock_withdrawal_timestamp)
+				// set the withdrawal timestamp (1 year = 365.2425 days, so 12 periods of 2629746 seconds = 1 years) 
+				? $oaapadlock_withdrawal_timestamp + 2629746
+				// else keep the same timestamp until next trigger 
+				: $oaapadlock_withdrawal_timestamp; 
+            }`
+        }
+   ]
+}
